@@ -1,9 +1,6 @@
 package com.nest.Course_backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Courses")
@@ -20,7 +17,7 @@ public class Courses {
     public Courses() {
     }
 
-    public Courses(int id, String coursetitle, String description, String venue, String duration, String date) {
+    public Courses(Integer id, String coursetitle, String description, String venue, String duration, String date) {
         this.id = id;
         this.coursetitle = coursetitle;
         this.description = description;

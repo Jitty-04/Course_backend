@@ -1,6 +1,8 @@
 package com.nest.Course_backend.controller;
 
+import com.nest.Course_backend.dao.CourseDao;
 import com.nest.Course_backend.model.Courses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CourseController {
+    @Autowired
+    private CourseDao dao;
+
     @PostMapping("/")
     public String Homepage(){
         return "welcome to course home page";
@@ -20,6 +25,8 @@ public class CourseController {
         System.out.println(c.getVenue().toString());
         System.out.println(c.getDuration().toString());
         System.out.println(c.getDate().toString());
+        dao.save(c);
+
 
         return "Course Added Successfully";
     }
