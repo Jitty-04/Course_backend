@@ -1,6 +1,7 @@
 package com.nest.Course_backend.controller;
 
 import com.nest.Course_backend.model.Courses;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,10 @@ public class CourseController {
         System.out.println(c.getDate().toString());
 
         return "Course Added Successfully";
+    }
+    @GetMapping("/viewall")
+    public String ViewAllCourse(){
+        return "welcome to view all course page";
     }
 
 }
