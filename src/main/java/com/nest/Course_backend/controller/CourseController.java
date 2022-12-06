@@ -3,22 +3,23 @@ package com.nest.Course_backend.controller;
 import com.nest.Course_backend.dao.CourseDao;
 import com.nest.Course_backend.model.Courses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class CourseController {
     @Autowired
     private CourseDao dao;
-
+     @CrossOrigin(origins = "*")
     @PostMapping("/")
     public String Homepage(){
         return "welcome to course home page";
     }
     @PostMapping(path="/add",consumes = "application/json",produces = "application/json")
     public String AddCourse(@RequestBody Courses c)
+
+
     {
         System.out.println(c.getCoursetitle().toString());
         System.out.println(c.getDescription().toString());
@@ -30,9 +31,10 @@ public class CourseController {
 
         return "Course Added Successfully";
     }
+    @CrossOrigin(origins = "*")
     @GetMapping("/viewall")
-    public String ViewAllCourse(){
-        return "welcome to view all course page";
+    public List<Courses> ViewAllCourse(){
+        return (List<Courses>) dao.findAll()  ;
     }
 
 }
