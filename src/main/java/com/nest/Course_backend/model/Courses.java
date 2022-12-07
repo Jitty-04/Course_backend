@@ -3,7 +3,7 @@ package com.nest.Course_backend.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Courses")
+@Table(name = "courses")
 public class Courses {
     @Id
     @GeneratedValue
